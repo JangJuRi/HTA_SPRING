@@ -21,16 +21,12 @@
 							<input type="text" class="form-control" name="title" id="board-title"/>
 						</div>
 						<div class="form-group">
-							<label>작성자</label>
-							<input type="text" class="form-control" name="writer" id="board-writer"/>
-						</div>
-						<div class="form-group">
 							<label>내용</label>
 							<textarea rows="5" class="form-control" name="content"></textarea>
 						</div>
 						<div class="form-group">
 							<label>첨부파일</label>
-							<input type="file" class="form-control" name="upfile"/>
+							<input type="file" class="form-control" name="upfile" />
 						</div>
 						<div class="form-group">
 							<label>비밀번호</label>
@@ -44,29 +40,28 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</div>	
 </div>
-
 <script type="text/javascript" src="/resources/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	// 입력폼에서 submit 이벤트 발생 시 실행할 이벤트핸들러함수 등록해두기
+	// 입력폼에서 submit 이벤트 발생시 실행할 이벤트핸들러함수 등록해두기
 	$("#form-board").submit(function() {
 		var $titleField = $("#board-title");
 		var $writerField = $("#board-writer");
 		var $passwordField = $("#board-password");
 		
-		if($titleField.val() == "") {
+		if ($titleField.val() == "") {
 			alert("제목은 필수입력값입니다.");
 			$titleField.focus();
 			return false;
 		}
-		if($writerField.val() == "") {
+		if ($writerField.val() == "") {
 			alert("작성자는 필수입력값입니다.");
 			$writerField.focus();
 			return false;
 		}
-		if($passwordField.val() == "") {
+		if ($passwordField.val() == "") {
 			alert("비밀번호는 필수입력값입니다.");
 			$passwordField.focus();
 			return false;
@@ -77,3 +72,12 @@ $(function() {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

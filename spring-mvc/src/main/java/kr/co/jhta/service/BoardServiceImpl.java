@@ -5,16 +5,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.jhta.dao.BoardDao;
 import kr.co.jhta.vo.Board;
 
 @Service
+@Transactional
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDao boardDao;
-	
+
 	@Override
 	public List<Board> getAllBoards() {
 		return boardDao.selectBoards();
@@ -42,10 +44,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void modifyBoardDetail(Board board) {
 		Board savedBoard = boardDao.selectBoard(board.getNo());
-		if(savedBoard == null) {
+		if (savedBoard == null) {
 			throw new RuntimeException("["+board.getNo()+"]번 게시글이 없습니다.");
 		}
-		if(!savedBoard.getPassword().equals(board.getPassword())) {
+		if (!savedBoard.getPassword().equals(board.getPassword())) {
 			throw new RuntimeException("비밀번호가 일치하지 않습니다.");
 		}
 		
@@ -60,10 +62,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void deleteBoard(long boardNo, String password) {
 		Board savedBoard = boardDao.selectBoard(boardNo);
-		if(savedBoard == null) {
+		if (savedBoard == null) {
 			throw new RuntimeException("["+boardNo+"]번 게시글이 없습니다.");
 		}
-		if(!savedBoard.getPassword().equals(password)) {
+		if (!savedBoard.getPassword().equals(password)) {
 			throw new RuntimeException("비밀번호가 일치하지 않습니다.");
 		}
 		
@@ -72,5 +74,5 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDao.updateBoard(savedBoard);
 	}
-
+	
 }

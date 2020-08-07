@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,11 @@
 						<table class="table">
 							<colgroup>
 								<col width="10%">
-								<col width="*%">
+								<col width="*">
 								<col width="15%">
 								<col width="15%">
 								<col width="15%">
+							</colgroup>
 							<thead>
 								<tr>
 									<th>번호</th>
@@ -44,10 +45,10 @@
 									<c:forEach var="board" items="${boards }">
 										<tr>
 											<td>${board.no }</td>
-											<td><a href="likes.do?no=${board.no }"><c:out value="${board.title }"/></a></td>
+											<td><a href="likes.do?no=${board.no }"><c:out value="${board.title }" /></a></td>
 											<td>${board.writer }</td>
 											<td>${board.likes }</td>
-											<td><fmt:formatDate value="${board.createdDate }"/></td>
+											<td><fmt:formatDate value="${board.createdDate }"/> </td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
@@ -55,8 +56,8 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="card-footer text-right mb-5">
-						<a href="form.do" class="btn btn-primary">새 글</a>
+					<div class="card-footer text-right">
+						<a href="add.do" class="btn btn-primary">새 글</a>
 					</div>
 				</div>
 			</div>

@@ -63,7 +63,7 @@ public class Board {
 	}
 
 	public String getOriginalFilename() {
-		if(filename == null) {
+		if (filename == null) {
 			return null;
 		}
 		return filename.substring(13);
@@ -111,7 +111,5 @@ public class Board {
 
 	public void setDeletedDate(Date deletedDate) {
 		this.deletedDate = deletedDate;
-	}
-	
-	
+	}	
 }
